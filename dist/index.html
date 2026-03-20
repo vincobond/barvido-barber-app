@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barvido - Real-time Barber & Salon Booking</title>
+    <script type="module" crossorigin src="/assets/index-CaU7rc64.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DwLN4yQy.css">
+  </head>
+  <body style="margin: 0; background-color: #1c1c1e;">
+    <div id="root">
+      <!-- Initial Static Loader (will be replaced by React) -->
+      <div id="initial-loader" style="position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #1c1c1e; font-family: sans-serif;">
+        <style>
+          @keyframes initialSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+          @keyframes initialFadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+          .loader-container { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+          .logo-box { animation: initialFadeUp 0.6s ease-out forwards; }
+          .spinner { width: 60px; height: 60px; border: 2px solid rgba(216, 90, 48, 0.1); border-top-color: #D85A30; border-radius: 50%; animation: initialSpin 1s linear infinite; margin-bottom: 20px; }
+        </style>
+        <div class="loader-container">
+          <div class="spinner"></div>
+          <div class="logo-box" style="text-align: center;">
+            <div style="color: #ffffff; font-size: 24px; font-weight: 700; margin-bottom: 4px;">✦ Barvido</div>
+            <div style="color: #9ca3af; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;">Your grooming, your time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
