@@ -1,0 +1,21 @@
+{
+  "name": "Alabaster",
+  "short_name": "Alabaster",
+  "description": "Professional Grooming Ecosystem",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#b45309",
+  "icons": [
+    {
+      "src": "https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

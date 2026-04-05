@@ -2,31 +2,123 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-    <title>Barvido - Real-time Barber & Salon Booking</title>
-    <script type="module" crossorigin src="/assets/index-DasynDfA.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B8zMlCn-.css">
+    <meta name="theme-color" content="#b45309" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Alabaster" />
+    
+    <!-- Open Graph / Alabaster Identity -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alabaster - Professional Grooming Ecosystem" />
+    <meta property="og:description" content="The apex of professional grooming management and elite service protocols." />
+    <meta property="og:image" content="https://ik.imagekit.io/h3qzmviwv/Barvido/Last%20onboarding%20banner%20(1).png" />
+    
+    <link rel="manifest" href="/manifest.json" />
+    <title>Alabaster - Your Digital Shop</title>
+    <style>
+      /* Mobile Responsive Sizing & Pro Styles */
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      @keyframes fadeIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+      
+      #initial-loader {
+        position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; 
+        align-items: center; justify-content: center; background-color: #ffffff; 
+        transition: opacity 0.6s ease-in-out;
+      }
+      
+      #pattern-overlay {
+        position: absolute; inset: 0; z-index: 0; 
+        background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, #f3f4f6 2px, #f3f4f6 4px); 
+        opacity: 0.4; pointer-events: none;
+      }
+
+      .spinner-ring {
+        position: absolute; width: 140px; height: 140px; border-radius: 50%; 
+        border: 2px solid transparent; border-top-color: #D85A30; 
+        border-right-color: rgba(216, 90, 48, 0.3); animation: spin 1.5s linear infinite;
+      }
+
+      .logo-box {
+        width: 100px; height: 100px; background-color: white; border-radius: 50%; 
+        display: flex; align-items: center; justify-content: center; 
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); position: relative; 
+        z-index: 1; animation: fadeIn 0.5s ease-out;
+      }
+
+      .logo-img { width: 80px; height: 80px; -o-object-fit: contain; object-fit: contain; }
+      .loader-hidden { opacity: 0 !important; pointer-events: none !important; }
+
+      @media (min-width: 640px) {
+        .spinner-ring { width: 180px; height: 180px; }
+        .logo-box { width: 128px; height: 128px; }
+        .logo-img { width: 100px; height: 100px; }
+      }
+
+      /* Dark Mode Styles */
+      .dark-mode #initial-loader { background-color: #1c1c1e !important; }
+      .dark-mode #pattern-overlay { 
+        background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px) !important; 
+      }
+      .dark-mode .logo-box { background-color: #2a2a2c; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2); }
+    </style>
+    <script type="module" crossorigin src="/assets/index--WsSXejl.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-08ldMmd6.css">
   </head>
-  <body style="margin: 0; background-color: #1c1c1e;">
-    <div id="root">
-      <!-- Initial Static Loader (will be replaced by React) -->
-      <div id="initial-loader" style="position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #1c1c1e; font-family: sans-serif;">
-        <style>
-          @keyframes initialSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-          @keyframes initialFadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-          .loader-container { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-          .logo-box { animation: initialFadeUp 0.6s ease-out forwards; }
-          .spinner { width: 60px; height: 60px; border: 2px solid rgba(216, 90, 48, 0.1); border-top-color: #D85A30; border-radius: 50%; animation: initialSpin 1s linear infinite; margin-bottom: 20px; }
-        </style>
-        <div class="loader-container">
-          <div class="spinner"></div>
-          <div class="logo-box" style="text-align: center;">
-            <div style="color: #ffffff; font-size: 24px; font-weight: 700; margin-bottom: 4px;">✦ Barvido</div>
-            <div style="color: #9ca3af; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;">Your grooming, your time</div>
-          </div>
+  <body style="margin: 0; background-color: #ffffff; overflow: hidden;">
+    <script>
+      // Professional Theme Detection Sync
+      (function() {
+        try {
+          const theme = localStorage.getItem('barvido-ui-theme') || 'light';
+          const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.body.style.backgroundColor = '#1c1c1e';
+            document.body.classList.add('dark-mode');
+          }
+        } catch (e) {
+          console.error('Theme detection failed', e);
+        }
+      })();
+    </script>
+
+    <div id="root"></div>
+    
+    <!-- Professional Splash Screen Phase 1 -->
+    <div id="initial-loader">
+      <div id="pattern-overlay"></div>
+      
+      <div style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center;">
+        <div class="spinner-ring"></div>
+        <div class="logo-box">
+          <img src="https://ik.imagekit.io/h3qzmviwv/Barvido/Alabaster%20logo%20(1).png" class="logo-img" alt="Alabaster Logo" />
         </div>
       </div>
-    </div>
+    </div>
+
+    <script>
+      // Global function for React to trigger the fade out
+      window.hideAppLoader = function() {
+        const loader = document.getElementById('initial-loader');
+        if (loader) {
+          loader.classList.add('loader-hidden');
+          document.body.style.overflow = 'auto';
+          setTimeout(() => {
+            if (loader.parentNode) loader.parentNode.removeChild(loader);
+          }, 600);
+        }
+      };
+    </script>
+    <script>
+      // Alabaster Service Worker Protocol
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('[ALABASTER PWA] Protocol Active'))
+            .catch(err => console.error('[ALABASTER PWA] Initialization Failure', err));
+        });
+      }
+    </script>
   </body>
 </html>
