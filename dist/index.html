@@ -20,7 +20,8 @@
     <style>
       /* Mobile Responsive Sizing & Pro Styles */
       @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-      @keyframes fadeIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+      @keyframes spin-reverse { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+      @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
       
       #initial-loader {
         position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; 
@@ -34,26 +35,34 @@
         opacity: 0.4; pointer-events: none;
       }
 
-      .spinner-ring {
-        position: absolute; width: 140px; height: 140px; border-radius: 50%; 
+      .spinner-ring-outer {
+        position: absolute; width: 130px; height: 130px; border-radius: 50%; 
         border: 2px solid transparent; border-top-color: #D85A30; 
-        border-right-color: rgba(216, 90, 48, 0.3); animation: spin 1.5s linear infinite;
+        border-right-color: rgba(216, 90, 48, 0.2); animation: spin 3s linear infinite;
+        opacity: 0.6;
+      }
+
+      .spinner-ring-inner {
+        position: absolute; width: 100px; height: 100px; border-radius: 50%; 
+        border: 3px solid transparent; border-top-color: #D85A30; 
+        border-left-color: rgba(216, 90, 48, 0.3); animation: spin-reverse 2s linear infinite;
       }
 
       .logo-box {
-        width: 100px; height: 100px; background-color: white; border-radius: 50%; 
+        width: 80px; height: 80px; background-color: white; border-radius: 50%; 
         display: flex; align-items: center; justify-content: center; 
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); position: relative; 
-        z-index: 1; animation: fadeIn 0.5s ease-out;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); position: relative; 
+        z-index: 1; animation: pulse 3s ease-in-out infinite;
       }
 
-      .logo-img { width: 80px; height: 80px; -o-object-fit: contain; object-fit: contain; }
+      .logo-img { width: 55px; height: 55px; -o-object-fit: contain; object-fit: contain; }
       .loader-hidden { opacity: 0 !important; pointer-events: none !important; }
 
       @media (min-width: 640px) {
-        .spinner-ring { width: 180px; height: 180px; }
-        .logo-box { width: 128px; height: 128px; }
-        .logo-img { width: 100px; height: 100px; }
+        .spinner-ring-outer { width: 190px; height: 190px; }
+        .spinner-ring-inner { width: 150px; height: 150px; }
+        .logo-box { width: 120px; height: 120px; }
+        .logo-img { width: 90px; height: 90px; }
       }
 
       /* Dark Mode Styles */
@@ -61,10 +70,10 @@
       .dark-mode #pattern-overlay { 
         background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px) !important; 
       }
-      .dark-mode .logo-box { background-color: #2a2a2c; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2); }
+      .dark-mode .logo-box { background-color: #2a2a2c; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); }
     </style>
-    <script type="module" crossorigin src="/assets/index--WsSXejl.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-08ldMmd6.css">
+    <script type="module" crossorigin src="/assets/index-D7xXOCAL.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BslVkBo_.css">
   </head>
   <body style="margin: 0; background-color: #ffffff; overflow: hidden;">
     <script>
@@ -90,7 +99,8 @@
       <div id="pattern-overlay"></div>
       
       <div style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center;">
-        <div class="spinner-ring"></div>
+        <div class="spinner-ring-outer"></div>
+        <div class="spinner-ring-inner"></div>
         <div class="logo-box">
           <img src="https://ik.imagekit.io/h3qzmviwv/Barvido/Alabaster%20logo%20(1).png" class="logo-img" alt="Alabaster Logo" />
         </div>
