@@ -4,7 +4,7 @@
   "description": "Professional Grooming Ecosystem",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#D85A30",
   "theme_color": "#b45309",
   "icons": [
     {
