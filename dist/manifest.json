@@ -5,7 +5,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#D85A30",
-  "theme_color": "#b45309",
+  "theme_color": "#D85A30",
   "icons": [
     {
       "src": "https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png",
