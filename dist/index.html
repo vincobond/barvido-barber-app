@@ -1,153 +1,250 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-    <meta name="theme-color" content="#D85A30" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Alabaster" />
-    
-    <!-- iOS Splash Screens -->
-    <link rel="apple-touch-icon" href="https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png" />
-    <!-- Open Graph / Alabaster Identity -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Alabaster - Professional Grooming Ecosystem" />
-    <meta property="og:description" content="The apex of professional grooming management and elite service protocols." />
-    <meta property="og:image" content="https://ik.imagekit.io/h3qzmviwv/Barvido/Last%20onboarding%20banner%20(1).png" />
-    
-    <link rel="manifest" href="/manifest.json" />
-    <title>Alabaster - Your Digital Shop</title>
-    <style>
-      /* Mobile Responsive Sizing & Pro Styles */
-      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-      @keyframes spin-reverse { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
-      @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-      
-      #initial-loader {
-        position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; 
-        align-items: center; justify-content: center; background-color: #D85A30; 
-        transition: opacity 0.6s ease-in-out;
-      }
-      
-      .dark-mode #initial-loader { background-color: #351b13bb !important; }
-      
-      #pattern-overlay {
-        position: absolute; inset: 0; z-index: 0; 
-        background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.05) 2px, rgba(255,255,255,0.05) 4px); 
-        opacity: 1; pointer-events: none;
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#D85A30" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Alabaster" />
+
+  <!-- iOS Splash Screens -->
+  <link rel="apple-touch-icon" href="https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png" />
+  <!-- Open Graph / Alabaster Identity -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Alabaster - Professional Grooming Ecosystem" />
+  <meta property="og:description" content="The apex of professional grooming management and elite service protocols." />
+  <meta property="og:image" content="https://ik.imagekit.io/h3qzmviwv/Barvido/Last%20onboarding%20banner%20(1).png" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <title>Alabaster - Your Digital Shop</title>
+  <style>
+    /* Mobile Responsive Sizing & Pro Styles */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
       }
 
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin-reverse {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(-360deg);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    #initial-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #D85A30;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    .dark-mode #initial-loader {
+      background-color: #1c1c1e !important;
+    }
+
+    #pattern-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 4px);
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .spinner-ring-outer {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-top-color: #ffffff;
+      border-right-color: rgba(255, 255, 255, 0.2);
+      animation: spin 3s linear infinite;
+      opacity: 0.4;
+    }
+
+    .spinner-ring-inner {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-top-color: #ffffff;
+      border-left-color: rgba(255, 255, 255, 0.3);
+      animation: spin-reverse 2s linear infinite;
+      opacity: 0.6;
+    }
+
+    .logo-box {
+      width: 54px;
+      height: 54px;
+      background-color: white;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 1;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .logo-img {
+      width: 34px;
+      height: 34px;
+      -o-object-fit: contain;
+         object-fit: contain;
+    }
+
+    .branding-footer {
+      position: absolute;
+      bottom: 50px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.6em;
+      text-transform: uppercase;
+      z-index: 10;
+      opacity: 0.9;
+    }
+
+    .loader-hidden {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    @media (min-width: 640px) {
       .spinner-ring-outer {
-        position: absolute; width: 100px; height: 100px; border-radius: 50%; 
-        border: 2px solid transparent; border-top-color: #ffffff; 
-        border-right-color: rgba(255, 255, 255, 0.2); animation: spin 3s linear infinite;
-        opacity: 0.4;
+        width: 140px;
+        height: 140px;
       }
 
       .spinner-ring-inner {
-        position: absolute; width: 80px; height: 80px; border-radius: 50%; 
-        border: 2px solid transparent; border-top-color: #ffffff; 
-        border-left-color: rgba(255, 255, 255, 0.3); animation: spin-reverse 2s linear infinite;
-        opacity: 0.6;
+        width: 110px;
+        height: 110px;
       }
 
       .logo-box {
-        width: 64px; height: 64px; background-color: white; border-radius: 1.25rem; 
-        display: flex; align-items: center; justify-content: center; 
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); position: relative; 
-        z-index: 1; animation: pulse 3s ease-in-out infinite;
+        width: 80px;
+        height: 80px;
+        border-radius: 1.5rem;
       }
 
-      .logo-img { width: 42px; height: 42px; -o-object-fit: contain; object-fit: contain; }
-      
+      .logo-img {
+        width: 50px;
+        height: 50px;
+      }
+
       .branding-footer {
-        position: absolute; bottom: 50px; left: 0; right: 0; text-align: center;
-        color: white; font-family: system-ui, -apple-system, sans-serif;
-        font-weight: 900; font-size: 13px; letter-spacing: 0.6em;
-        text-transform: uppercase; z-index: 10; opacity: 0.9;
+        font-size: 14px;
+        bottom: 60px;
       }
+    }
 
-      .loader-hidden { opacity: 0 !important; pointer-events: none !important; }
+    /* Dark Mode Styles */
+    .dark-mode #pattern-overlay {
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px) !important;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-2vAt4BMd.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DgUbrN7n.css">
+</head>
 
-      @media (min-width: 640px) {
-        .spinner-ring-outer { width: 140px; height: 140px; }
-        .spinner-ring-inner { width: 110px; height: 110px; }
-        .logo-box { width: 90px; height: 90px; border-radius: 2rem; }
-        .logo-img { width: 60px; height: 60px; }
-        .branding-footer { font-size: 12px; bottom: 60px; }
-      }
-
-      /* Dark Mode Styles */
-      .dark-mode #pattern-overlay { 
-        background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px) !important; 
-      }
-    </style>
-    <script type="module" crossorigin src="/assets/index-MweI2CLb.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BhW1uMl1.css">
-  </head>
-  <body style="margin: 0; background-color: #ffffff; overflow: hidden;">
-    <script>
-      // Professional Theme Detection Sync
-      (function() {
-        try {
-          const theme = localStorage.getItem('barvido-ui-theme') || 'light';
-          const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-          if (isDark) {
-            document.body.style.backgroundColor = '#1c1c1e';
-            document.body.classList.add('dark-mode');
-            // Immediate splash theme sync
-            const loader = document.getElementById('initial-loader');
-            if (loader) loader.style.backgroundColor = '#993C1D';
-          }
-        } catch (e) {
-          console.error('Theme detection failed', e);
+<body style="margin: 0; background-color: #ffffff; overflow: hidden;">
+  <script>
+    // Professional Theme Detection Sync
+    (function () {
+      try {
+        const theme = localStorage.getItem('barvido-ui-theme') || 'light';
+        const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) {
+          document.body.style.backgroundColor = '#1c1c1e';
+          document.body.classList.add('dark-mode');
+          // Immediate splash theme sync
+          if (loader) loader.style.backgroundColor = '#1c1c1e';
         }
-      })();
-    </script>
+      } catch (e) {
+        console.error('Theme detection failed', e);
+      }
+    })();
+  </script>
 
-    <div id="root"></div>
-    
-    <!-- Professional Splash Screen Phase 1 -->
-    <div id="initial-loader">
-      <div id="pattern-overlay"></div>
-      
-      <div style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center;">
-        <div class="spinner-ring-outer"></div>
-        <div class="spinner-ring-inner"></div>
-        <div class="logo-box">
-          <img src="https://ik.imagekit.io/h3qzmviwv/Barvido/Alabaster%20logo%20(1).png" class="logo-img" alt="Alabaster Logo" />
-        </div>
-      </div>
+  <div id="root"></div>
 
-      <div class="branding-footer">
-        Alabaster
+  <!-- Professional Splash Screen Phase 1 -->
+  <div id="initial-loader">
+    <div id="pattern-overlay"></div>
+
+    <div style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center;">
+      <div class="spinner-ring-outer"></div>
+      <div class="spinner-ring-inner"></div>
+      <div class="logo-box">
+        <img src="https://ik.imagekit.io/h3qzmviwv/Barvido/Alabaster%20logo%20(1).png" class="logo-img"
+          alt="Alabaster Logo" />
       </div>
     </div>
 
-    <script>
-      // Global function for React to trigger the fade out
-      window.hideAppLoader = function() {
-        const loader = document.getElementById('initial-loader');
-        if (loader) {
-          loader.classList.add('loader-hidden');
-          document.body.style.overflow = 'auto';
-          setTimeout(() => {
-            if (loader.parentNode) loader.parentNode.removeChild(loader);
-          }, 600);
-        }
-      };
-    </script>
-    <script>
-      // Alabaster Service Worker Protocol
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('[ALABASTER PWA] Protocol Active'))
-            .catch(err => console.error('[ALABASTER PWA] Initialization Failure', err));
-        });
+    <div class="branding-footer">
+      ALABASTER
+    </div>
+  </div>
+
+  <script>
+    // Global function for React to trigger the fade out
+    window.hideAppLoader = function () {
+      const loader = document.getElementById('initial-loader');
+      if (loader) {
+        loader.classList.add('loader-hidden');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => {
+          if (loader.parentNode) loader.parentNode.removeChild(loader);
+        }, 600);
       }
-    </script>
-  </body>
+    };
+  </script>
+  <script>
+    // Alabaster Service Worker Protocol
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('[ALABASTER PWA] Protocol Active'))
+          .catch(err => console.error('[ALABASTER PWA] Initialization Failure', err));
+      });
+    }
+  </script>
+</body>
+
 </html>
