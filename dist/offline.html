@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>System Offline | Alabaster</title>
+    <title>You're Offline | Alabaster</title>
     <style>
         :root {
-            --barvido-primary: #1c1c1e;
+            --barvido-primary: #09090b;
             --barvido-accent: #D85A30;
+            --barvido-gold: #E1AF50;
             --barvido-text: #ffffff;
-            --background: #1c1c1e;
+            --barvido-text-muted: #a1a1aa;
+            --background: #09090b;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
@@ -30,110 +32,137 @@
             position: relative;
         }
 
-        /* Diagonal Pattern Replicated */
+        /* Premium Pattern */
         .pattern-overlay {
             position: absolute;
             inset: 0;
-            background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px);
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
             z-index: 0;
             pointer-events: none;
         }
 
-        /* Ambient Glow */
-        .ambient-glow {
+        /* Ambient Glows */
+        .glow-1 {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(216, 90, 48, 0.1) 0%, transparent 70%);
+            top: -10%;
+            right: -10%;
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, rgba(216, 90, 48, 0.08) 0%, transparent 70%);
+            filter: blur(80px);
             z-index: 1;
-            pointer-events: none;
+        }
+
+        .glow-2 {
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, rgba(225, 175, 80, 0.05) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: 1;
         }
 
         .container {
             position: relative;
             z-index: 10;
             text-align: center;
-            max-width: 90%;
-            width: 400px;
-            padding: 40px;
-            animation: fadeIn 0.8s ease-out;
+            max-width: 400px;
+            width: 90%;
+            padding: 48px 32px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* Sharp Icon Box */
-        .icon-box {
-            width: 100px;
-            height: 100px;
+        /* Modern Offline Icon */
+        .icon-container {
+            width: 80px;
+            height: 80px;
             margin: 0 auto 32px;
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            background: linear-gradient(135deg, var(--barvido-accent), #993C1D);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px -10px rgba(216, 90, 48, 0.5);
+            transform: rotate(-5deg);
         }
 
-        .icon-box svg {
-            width: 48px;
-            height: 48px;
-            stroke: var(--barvido-accent);
-            stroke-width: 1.5;
-            fill: none;
+        .icon-container svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(0.9); opacity: 0.8; }
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: -0.02em;
-            margin-bottom: 12px;
+            letter-spacing: -0.04em;
+            margin-bottom: 16px;
+            color: #fff;
         }
 
         p {
-            font-size: 11px;
-            color: #71717a;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
+            font-size: 14px;
+            color: var(--barvido-text-muted);
+            font-weight: 500;
             line-height: 1.6;
             margin-bottom: 40px;
+            padding: 0 10px;
         }
 
-        /* Sharp Button */
-        .retry-button {
+        /* Modern Button */
+        .refresh-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--barvido-accent);
-            color: white;
-            padding: 18px 40px;
+            gap: 12px;
+            background-color: #fff;
+            color: #000;
+            padding: 16px 32px;
+            border-radius: 12px;
             text-decoration: none;
-            font-size: 10px;
-            font-weight: 900;
+            font-size: 13px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.1em;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             width: 100%;
             border: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        .retry-button:hover {
-            background-color: #993C1D;
+        .refresh-button:hover {
+            transform: translateY(-2px);
+            background-color: var(--barvido-gold);
+            color: #000;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
         }
 
-        .retry-button:active {
-            transform: scale(0.98);
+        .refresh-button:active {
+            transform: translateY(0);
         }
 
-        .offline-tag {
+        .brand-watermark {
             position: absolute;
             bottom: 40px;
             left: 0;
@@ -142,38 +171,91 @@
             font-size: 10px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.6em;
-            color: rgba(255, 255, 255, 0.15);
+            letter-spacing: 0.5em;
+            color: rgba(255, 255, 255, 0.05);
             pointer-events: none;
+        }
+
+        /* Status Pills */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 100px;
+            color: #ef4444;
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
         }
     </style>
 </head>
 <body>
     <div class="pattern-overlay"></div>
-    <div class="ambient-glow"></div>
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
 
     <div class="container">
-        <div class="icon-box">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-                <circle cx="12" cy="12" r="10" stroke-dasharray="2 4"/>
+        <div class="status-pill">
+            <div class="dot"></div>
+            Searching for Signal
+        </div>
+
+        <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+                <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+                <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+                <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+                <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                <line x1="12" y1="20" x2="12.01" y2="20"></line>
             </svg>
         </div>
-        <h1>Connection Lost</h1>
-        <p>Your session is currently interrupted. System integrity will restore automatically upon reconnection.</p>
+
+        <h1>You're Offline</h1>
+        <p>It looks like you've lost your connection. Don't worry, we're monitoring your signal and will bring you back online automatically as soon as it returns.</p>
         
-        <button class="retry-button" onclick="window.location.reload()">
-            Initialize Reconnect
+        <button class="refresh-button" onclick="window.location.reload()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 4v6h-6"></path>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh Page
         </button>
     </div>
 
-    <div class="offline-tag">Offline Fallback</div>
+    <div class="brand-watermark">ALABASTER PLATFORM</div>
 
     <script>
-        // Check for connectivity periodically
+        // Automatic reconnection logic
         window.addEventListener('online', () => {
             window.location.reload();
         });
+
+        // Periodic check just in case
+        setInterval(() => {
+            if (navigator.onLine) {
+                window.location.reload();
+            }
+        }, 5000);
     </script>
 </body>
 </html>
