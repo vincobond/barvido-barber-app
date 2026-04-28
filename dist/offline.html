@@ -6,12 +6,12 @@
     <title>You're Offline | Alabaster</title>
     <style>
         :root {
-            --barvido-primary: #09090b;
+            --barvido-primary: #1c1c1e;
             --barvido-accent: #D85A30;
             --barvido-gold: #E1AF50;
             --barvido-text: #ffffff;
             --barvido-text-muted: #a1a1aa;
-            --background: #09090b;
+            --background: #1c1c1e;
         }
 
         * {
@@ -73,11 +73,11 @@
             max-width: 400px;
             width: 90%;
             padding: 48px 32px;
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--barvido-primary);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: none;
             animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: none;
         }
 
         @keyframes fadeIn {
@@ -183,7 +183,7 @@
             gap: 6px;
             padding: 6px 12px;
             background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.2);
+            border: none;
             border-radius: 100px;
             color: #ef4444;
             font-size: 9px;
@@ -193,18 +193,6 @@
             margin-bottom: 24px;
         }
 
-        .dot {
-            width: 6px;
-            height: 6px;
-            background: currentColor;
-            border-radius: 50%;
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
     </style>
 </head>
 <body>
@@ -214,7 +202,6 @@
 
     <div class="container">
         <div class="status-pill">
-            <div class="dot"></div>
             Searching for Signal
         </div>
 
