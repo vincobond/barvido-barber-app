@@ -16,9 +16,9 @@ const messaging = firebase.messaging();
 
 // Handle background messages
 messaging.onBackgroundMessage((payload) => {
-  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  console.log('[firebase-messaging-sw.js] 🔔 Background Message Received:', payload);
   
-  const notificationTitle = payload.notification.title;
+  const notificationTitle = payload.notification.title || "Alabaster";
   const notificationOptions = {
     body: payload.notification.body,
     icon: payload.notification.icon || 'https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png',
