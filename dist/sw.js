@@ -1,5 +1,5 @@
-// Alabaster Service Worker (PWA Optimization)
-const CACHE_NAME = 'alabaster-cache-v1';
+// Alabasta Service Worker (PWA Optimization)
+const CACHE_NAME = 'Alabasta-cache-v1';
 const OFFLINE_URL = '/offline.html';
 
 self.addEventListener('install', (event) => {
