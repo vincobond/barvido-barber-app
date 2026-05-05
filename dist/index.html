@@ -7,6 +7,7 @@
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
   <meta name="theme-color" content="#D85A30" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Alabasta" />
@@ -185,7 +186,7 @@
       background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px) !important;
     }
   </style>
-  <script type="module" crossorigin src="/assets/index-CJD2n1rS.js"></script>
+  <script type="module" crossorigin src="/assets/index-BVnkGM0E.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-B-d5Nekk.css">
 </head>
 
@@ -241,6 +242,15 @@
         }, 600);
       }
     };
+
+    // Alabasta Safety Protocol: If the app hasn't loaded in 10 seconds, hide the loader anyway
+    setTimeout(() => {
+      const loader = document.getElementById('initial-loader');
+      if (loader && !loader.classList.contains('loader-hidden')) {
+        console.warn('[ALABASTA] Safety timeout triggered: App taking too long to mount.');
+        window.hideAppLoader();
+      }
+    }, 10000);
   </script>
   <script>
     // Alabasta Service Worker Protocol
