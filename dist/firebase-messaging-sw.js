@@ -54,3 +54,13 @@ self.addEventListener('notificationclick', (event) => {
     })
   );
 });
+
+// Offline Support Protocol
+self.addEventListener("fetch", (event) => {
+  if (!navigator.onLine) {
+    event.respondWith(
+      caches.match("/offline.html") || 
+      new Response("You are offline. Please check your connection.")
+    );
+  }
+});

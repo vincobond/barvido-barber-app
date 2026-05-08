@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /shops
+Allow: /shops/*
+Disallow: /dashboard
+Disallow: /super-admin
+Disallow: /onboarding
+Sitemap: https://alabasta.app/sitemap.xml

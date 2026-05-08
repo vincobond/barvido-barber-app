@@ -1,10 +1,10 @@
 {
   "name": "Alabasta",
   "short_name": "Alabasta",
-  "description": "Professional Grooming Ecosystem",
+  "description": "Skip the wait. Book smarter.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#D85A30",
+  "background_color": "#1c1c1e",
   "theme_color": "#D85A30",
   "icons": [
     {
@@ -13,7 +13,7 @@
       "type": "image/png"
     },
     {
-      "src": "https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png",
+      "src": "https://res.cloudinary.com/dvjferxcm/image/upload/v1778148900/Gemini_Generated_Image_e8kep9e8kep9e8ke_1_xm4hj8.png",
       "sizes": "512x512",
       "type": "image/png"
     }
