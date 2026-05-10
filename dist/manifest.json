@@ -1,6 +1,6 @@
 {
-  "name": "Alabasta Test",
-  "short_name": "Alabasta Test",
+  "name": "AlabastaTest",
+  "short_name": "AlabastaTest",
   "description": "Skip the wait. Book smarter.",
   "start_url": "/",
   "display": "standalone",
