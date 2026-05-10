@@ -1,20 +1,20 @@
 {
-  "name": "Alabasta",
-  "short_name": "Alabasta",
+  "name": "Alabasta Test",
+  "short_name": "Alabasta Test",
   "description": "Skip the wait. Book smarter.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1c1c1e",
+  "background_color": "#ffffff",
   "theme_color": "#D85A30",
   "icons": [
     {
-      "src": "https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png",
+      "src": "https://ik.imagekit.io/h3qzmviwv/Barvido/favicon%20logo%20(1).png?updatedAt=1775181392156",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://res.cloudinary.com/dvjferxcm/image/upload/v1778148900/Gemini_Generated_Image_e8kep9e8kep9e8ke_1_xm4hj8.png",
-      "sizes": "512x512",
+      "src": "https://ik.imagekit.io/h3qzmviwv/Barvido/Gemini_Generated_Image_e8kep9e8kep9e8ke%20(1).png",
+      "sizes": "512x512 ",
       "type": "image/png"
     }
   ]
